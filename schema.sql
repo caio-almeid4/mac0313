@@ -63,7 +63,7 @@ CREATE TABLE
         email VARCHAR(200) UNIQUE NOT NULL,
         senha VARCHAR(200) NOT NULL,
         descricao_perfil TEXT,
-        qtd_creditos INTEGER NOT NULL DEFAULT 0 CHECK (qtd_creditos >= 0),
+        qtd_creditos NUMERIC(10, 2) NOT NULL DEFAULT 0 CHECK (qtd_creditos >= 0),
         curso VARCHAR(30) NOT NULL,
         FOREIGN KEY (curso) REFERENCES curso (codigo) ON UPDATE CASCADE ON DELETE RESTRICT
     );
