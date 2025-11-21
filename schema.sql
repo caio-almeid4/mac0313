@@ -100,13 +100,14 @@ CREATE TABLE
 CREATE TABLE
     pacote (
         qtd_credito INTEGER PRIMARY KEY CHECK (qtd_credito >= 0),
-        preco NUMERIC(10, 2) NOT NULL CHECK (preco >= 0)
+        preco NUMERIC (10, 2) NOT NULL CHECK (preco >= 0)
     );
 
 CREATE TABLE
     aluno_pacote (
         qtd_credito INTEGER NOT NULL,
         nusp_comprador VARCHAR(20) NOT NULL,
+        preco NUMERIC (10, 2) NOT NULL,
         timestamp_compra TIMESTAMP NOT NULL DEFAULT now (),
         PRIMARY KEY (qtd_credito, nusp_comprador, timestamp_compra),
         FOREIGN KEY (qtd_credito) REFERENCES pacote (qtd_credito) ON UPDATE RESTRICT ON DELETE RESTRICT,
